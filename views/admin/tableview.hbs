@@ -1,0 +1,58 @@
+<section>
+    <div class="container mt-5">
+
+
+
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end mb-2">
+
+            <a href="/admin/data/"><button class="btn btn-success" type="button">CREATE</button></a>
+        </div>
+
+
+        <table class='table display' id="User_Table">
+            <thead>
+                <tr>
+
+                    <th scope=" col">Name</th>
+                    <th scope="col">Email</th>
+                    {{!-- <th scope="col">
+                        Address </th> --}}
+                    <th scope="col">
+                        Number</th>
+                    <th scope="col">
+                        Options </th>
+
+
+
+                </tr>
+            </thead>
+            <tbody>
+                {{#each userdata}}
+                <tr>
+
+                    <td>{{this.name}}</td>
+
+                    <td>{{this.email}}</td>
+                    {{!-- <td>{{this.address}}</td> --}}
+                    <td>{{this.number}}</td>
+                    <td>
+                        <a href="/admin/edit/{{this._id}}" class="btn btn-primary">Edit
+                        </a>
+                        <a href="/admin/delete/{{this._id}}" class="btn btn-danger"
+                            onclick="return confirm(' are you want to delete {{this.name}}?')">Delete
+                        </a>
+
+                    </td>
+                </tr>
+                {{/each}}
+
+            </tbody>
+        </table>
+
+    </div>
+</section>
+<script>
+    $(document).ready(function () {
+        $('#User_Table').DataTable();
+    });
+</script>
